@@ -1,0 +1,21 @@
+import requests
+
+api_key = "f91738f1e80dadf81f107794cd037080-c3f7edf4-815e-4769-b76c-c9f46c0647d4"    
+
+url = "https://6l68e.api.infobip.com/"
+
+headers = {
+    "accept": "application/json",
+    "authorization": f"App {api_key}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "from": "Prueba",
+    "to": "573124228889",
+    "text": "Hola recuerda que hay fin de semana y prueba"
+}
+
+response = requests.post(url, headers=headers, json=payload)
+
+print(response.text)
