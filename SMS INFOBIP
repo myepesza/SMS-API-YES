@@ -12,7 +12,7 @@ headers = {
 
 payload = {
     "from": "Prueba",
-    "to": "573124228889",
+    "to": "57##########",
     "text": "Hola recuerda que hay fin de semana y prueba"
 }
 
