@@ -1,0 +1,45 @@
+import requests
+import json
+import base64
+
+url = 'https://restaws.inalambria.com/Token'
+headers = {'Content-type': 'application/json'}
+
+username = 'USUARIO'
+password = 'CONTRASEÑA'
+credenciales = f"{username}:{password}"
+credenciales_codificadas = base64.b64encode(credenciales.encode()).decode()
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Basic {credenciales_codificadas}"
+}
+
+data = {
+    'grant_type': 'password'
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+if response.status_code == 200:
+    token = response.json()['access_token']
+    print(f"Token de autenticación: {token}")
+
+    url = 'https://restaws.inalambria.com/MTMESSAGE'
+    headers = {'Content-type': 'application/json', 'Authorization': f'Bearer {token}'}
+    payload = {
+        "MessageText": "Texto del mensaje",
+        "Type": 1,
+        "Devices": "######CELULAR"
+    }
+
+    response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+    if response.status_code == 200:
+        print("Mensaje de texto enviado con éxito.")
+    else:
+        print("Error al enviar el mensaje de texto: ", response.status_code)
+ 
+else:
+    print("Error al hacer la solicitud para obtener el token de autenticación: ", response.status_code)
+
