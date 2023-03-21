@@ -1,0 +1,25 @@
+import requests
+import base64
+import json
+
+url = "https://restaws.inalambria.com/Token"
+
+username = "trDemoYESBPO"
+password = "1P5z@10n6"
+credenciales = f"{username}:{password}"
+credenciales_codificadas_en_base64 = base64.b64encode(credenciales.encode()).decode()
+
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Basic {credenciales_codificadas_en_base64}"
+}
+
+data = {
+    "grant_type": "password"
+}
+
+response = requests.post(url, headers=headers, data=json.dumps(data))
+
+token = response.json()["access_token"]
+
+print(token)
