@@ -1,0 +1,41 @@
+import requests
+
+api_key = "J274bMdKCjx/J3JkHdglXGOjs3NpnMz5k3EfjuQCyZw="    
+
+url = "https://sms.intico.com.co:3312/api/sms_bulk"
+
+headers = {
+    "accept": "application/json",
+    "authorization": f"App {api_key}",
+    "content-type": "application/json"
+}
+
+payload = {
+    "api_key": "J274bMdKCjx/J3JkHdglXGOjs3NpnMz5k3EfjuQCyZw=",
+    "data": {
+        "messages": [
+            {
+                "correlative": 1545555,
+                "phone": "##########",
+                "message": "ESTE MENSAJE ES DE PRUEBA"
+            },
+            {
+                "correlative": 15655,
+                "phone": "##########",
+                "message": "MENSAJE PRUEBA"
+            }
+        ],
+        "smslargo": 0,
+        "hour": "08:21:00",
+        "delivery_date": "07/03/2023",
+        "delivery_type": 0,
+        "user": {
+            "user_id": 17129
+        }
+    }
+}
+
+
+response = requests.post(url, headers=headers, json=payload)
+
+print(response.text)
