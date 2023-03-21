@@ -1,0 +1,42 @@
+import requests
+import json
+import base64
+
+# URL base de la API de Masvoz
+url = "https://api-sms.masivapp.com/send-message"
+
+# Credenciales de autenticación
+usuario = "YESBPO_CLIENTE37_7H-DJ"
+contraseña = "4wN=SE@zt."
+
+# Datos del mensaje a enviar
+mensaje = {
+    "to": "57##########",
+    "text": "Mensaje de prueba,donde enviamos sms por api",
+    "customdata": "CUS_ID_0125",
+    "isPremium": False,
+    "isFlash": True,
+    "isLongmessage": False,
+    "isRandomRoute": False
+}
+
+
+# Convertimos los datos del mensaje a formato JSON
+mensaje_json = json.dumps(mensaje)
+
+# Creamos el encabezado de autenticación
+credenciales = usuario + ":" + contraseña
+credenciales_base64 = base64.b64encode(credenciales.encode()).decode()
+encabezado = {
+    "Authorization": "Basic " + credenciales_base64,
+    "Content-Type": "application/json"
+}
+
+# Enviamos la petición HTTP POST a la API de Masvoz
+respuesta = requests.post(url, headers=encabezado, data=mensaje_json)
+
+# Comprobamos el código de respuesta HTTP
+if respuesta.status_code == 200:
+    print("Mensaje enviado con éxito")
+else:
+    print("Error al enviar el mensaje:", respuesta.text)
