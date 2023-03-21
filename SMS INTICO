@@ -1,6 +1,6 @@
 import requests
 
-api_key = "J274bMdKCjx/J3JkHdglXGOjs3NpnMz5k3EfjuQCyZw="    
+api_key = "apy_key"    
 
 url = "https://sms.intico.com.co:3312/api/sms_bulk"
 
