@@ -4,8 +4,8 @@ import json
 
 url = "https://restaws.inalambria.com/Token"
 
-username = "trDemoYESBPO"
-password = "1P5z@10n6"
+username = "usuario"
+password = "contraseña"
 credenciales = f"{username}:{password}"
 credenciales_codificadas_en_base64 = base64.b64encode(credenciales.encode()).decode()
 
