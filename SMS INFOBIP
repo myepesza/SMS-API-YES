@@ -1,6 +1,6 @@
 import requests
 
-api_key = "f91738f1e80dadf81f107794cd037080-c3f7edf4-815e-4769-b76c-c9f46c0647d4"    
+api_key = "agregar_API"    
 
 url = "https://6l68e.api.infobip.com/"
 
