@@ -11,7 +11,7 @@ headers = {
 }
 
 payload = {
-    "api_key": "J274bMdKCjx/J3JkHdglXGOjs3NpnMz5k3EfjuQCyZw=",
+    "api_key": "api_key",
     "data": {
         "messages": [
             {
