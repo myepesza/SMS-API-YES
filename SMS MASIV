@@ -6,8 +6,8 @@ import base64
 url = "https://api-sms.masivapp.com/send-message"
 
 # Credenciales de autenticación
-usuario = "YESBPO_CLIENTE37_7H-DJ"
-contraseña = "4wN=SE@zt."
+usuario = "usuario"
+contraseña = "contraseña"
 
 # Datos del mensaje a enviar
 mensaje = {
